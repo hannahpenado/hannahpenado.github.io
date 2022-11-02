@@ -113,8 +113,8 @@ class Fight:
       move_list.append(move)
 
     attack = int(input('Type the number of the attack you would like to make, then press enter to selcet\n'))
-    while attack not in range(1, 4):
-      attack = int(input('Please enter the attack number 1-3\n'))
+    while attack not in range(1, 5):
+      attack = int(input('Please enter the attack number 1-4\n'))
     attack_name = character_attacks[attack - 1]
     print('{char2} has blocked {attack}'.format(char2 = character2, attack = attack_name))
 
