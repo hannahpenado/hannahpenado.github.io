@@ -1,2 +1,2 @@
 # python_projects
-## Just doing some coding from things that inspire me such as Mortal Kombat and simplifying it to the code I know how to write.
+## Just doing some coding from things that I like to do and showing some of my coding skills.
