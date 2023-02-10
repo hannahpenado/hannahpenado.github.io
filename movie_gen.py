@@ -90,6 +90,7 @@ genres.append(Romance, Action, Horror, Comedy, Scifi, Drama)
 def quicksort(lst, start_index, end_index):
     if start_index >= end_index:
         return
+    else:
     # find random element in list to be pivot point
     pivot_index = rand(range(start, end + 1)
     pivot_val = lst[pivot_index]
