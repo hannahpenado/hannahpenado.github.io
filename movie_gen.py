@@ -1,81 +1,32 @@
 ## import functions
 from random import randrange, shuffle, randint
-
-## create Node class
-class Node:
-    def __init__(self, value, next_node = None):
-        self.value = value
-        self.next_node = next_node
-    
-    def set_next_node(next_node):
-        self.next_node = next_node
-        
-    def get_next_node(self):
-        return self.next_node
-    
-    def get_value(self):
-        return self.value
     
 ## Create Tree class to more easily create and sort through movies in a genre
 class Tree:
-    def __init__(self, node):
-        self.value = node
-        self.child_nodes = []
+    def __init__(self, value):
+        self.value = value
+        self.child_vals = []
         
     ## method to add movies to a genre tree
-    def add_child(self, child_node):
-        self.child_nodes.append(child_node)
+    def add_child(self, child_val):
+        self.child_vals.append(child_val)
         
     ## method to help more easily move through needed movie values
     def traverse(self):
         traversed = []
-        nodes_to_visit = [self]
-        while len(nodes_to_visit) > 0:
-            current_node = nodes_to_visit.pop()
-            nodes_to_visit += current_node.child_nodes
-            traversed.append(current_node.get_value())
+        children_to_visit = [self]
+        while len(children_to_visit) > 0:
+            current_child = children_to_visit.pop()
+            children_to_visit += current_child.child_vals
+            traversed.append(current_child.get_value())
         return traversed
 
     ## method to see children nodes
     def get_children(self):
-        return self.child_nodes
+        return self.child_vals
     
     def get_value(self):
         return self.value
-
-## create Stack class
-class Stack:
-    def __init__(self, limit = 6):
-        self.limit = limit
-        self.size = 0
-        self.top_item = None
-     
-    def push(self, value):
-        if self.has_room():
-            movie = Node(value)
-            movie.set_next_node(self.top_item)
-            self.top_item = movie
-            self.size += 1
-        else:
-            return "Limit reached, cannot add"
-    
-    def pop(self):
-        if self.size > 0:
-            item_to_remove = self.top_item 
-            self.top_item = item_to_remove.get_next_node()
-            self.size -= 1
-            return item_to_remove.get_value()
-        else:
-            return None
-      
-    def has_space(self):
-        if self.size < self.limit:
-            return True
-        else:
-            return False
-        
-    def is_empty(self):
-        return self.size == 0
            
 ## creating global variables
 genre_start_letter = ["R", "A", "H", "C", "S", "D"]
